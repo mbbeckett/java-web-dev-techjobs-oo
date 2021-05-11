@@ -1,5 +1,7 @@
 package org.launchcode.techjobs_oo;
 
+import java.util.Objects;
+
 public class Job {
 
     private int id;
@@ -16,27 +18,42 @@ public class Job {
     //  the 'id' field.
 
 
-    public Job(int id) {
-        this.id = id;
+    public Job() {
+        this.id = nextId;
+        nextId++;
     }
 
-    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
+    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency, int id) {
         this.name = name;
         this.employer = employer;
         this.location = location;
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
-
+        this.id = getId();
+//        I THINK THIS IS RIGHT?
     }
 
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Job job = (Job) o;
+        return id == job.id && name.equals(job.name) && employer.equals(job.employer) && location.equals(job.location) && positionType.equals(job.positionType) && coreCompetency.equals(job.coreCompetency);
+    }
 
-    // TODO: Add getters for each field EXCEPT nextId.
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, employer, location, positionType, coreCompetency);
+    }
+
+
+// Add getters for each field EXCEPT nextId.
 //completed
-    //  TODO: Add setters for each field EXCEPT nextID and id.
+// Add setters for each field EXCEPT nextID and id.
 //completed
 
     public int getId() {
