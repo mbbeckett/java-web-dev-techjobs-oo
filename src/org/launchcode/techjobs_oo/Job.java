@@ -29,7 +29,7 @@ public class Job {
         this.location = location;
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
-        this.id = getId();
+        this.id = id;
 //        I THINK THIS IS RIGHT?
     }
 
