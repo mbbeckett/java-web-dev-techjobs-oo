@@ -37,14 +37,9 @@ public class JobTest {
         assertEquals("Desert", jobTestConstructor.getLocation().getValue());
         assertEquals("Quality Control", jobTestConstructor.getPositionType().getValue());
         assertEquals("Persistence", jobTestConstructor.getCoreCompetency().getValue());
-//        assertTrue(jobTestConstructor.getId() == jobTestConstructor.getId());
 //        TODO: TEST EVERY FIELD IN THE CONSTRUCTOR! Test ID field!!!
 
     }
-
-//for example, if you had a Job instance, you could get the name of the employer this way:
-//    // job is an instance of Job
-//String employerName = job.getEmployer().getValue();
 
     @Test
     public void testJobsForEquality(){
@@ -59,5 +54,33 @@ public class JobTest {
                 new PositionType("Quality control"),
                 new CoreCompetency("Persistence"));
         assertFalse(jobTestEquality1.getId() == jobTestEquality2.getId());
+    }
+
+//TODO: write a test that returns a string that contains a blank link before and after the job information
+    @Test
+    public void testBlankLineBeforeAndAfterJobInfo(){
+        assertEquals("\n" + "ID: " + "\n" +
+                "Name: " + "\n" +
+                "Employer: " + "\n" +
+                "Location: " + "\n" +
+                "Position Type: " + "\n" +
+                "Core Competency: " + "\n", testJob1.toString());
+    }
+
+//    TODO: string should contain a label for each field, data stored in corresponding field on its own line.
+    @Test
+    public void testStringLabelToStringMethod(){
+        assertEquals("\n" + "ID: " + testJob1.getId() +  "\n" +
+                "Name: " + testJob1.getName() + "\n" +
+                "Employer: "+ testJob1.getEmployer() +"\n" +
+                "Location: " + testJob1.getLocation() + "\n" +
+                "Position Type: "+ testJob1.getPositionType() +"\n" +
+                "Core Competency: " + testJob1.getCoreCompetency() + "\n", testJob1.toString());
+    }
+//    TODO: write a test for empty fields
+    @Test
+    public void testToStringMethodWithEmptyFields(){
+        Job testJobToString = new Job("", new Employer(), new Location(), new PositionType(), new CoreCompetency());
+        assertEquals("Data not available", testJobToString.toString());
     }
 }

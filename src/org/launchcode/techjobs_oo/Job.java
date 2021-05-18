@@ -12,50 +12,70 @@ public class Job {
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
+
+
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
 
     public Job() {
-        this.id = nextId;
+        id = nextId;
         nextId++;
     }
 
-
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
-//        this() initializes the id constructor?
-//        i think this is right...
+        this.id = getId();
         this.name = name;
         this.employer = employer;
         this.location = location;
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
-
     }
-
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
+//    @Override
+//    public String toString() {
+//        return "Job{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' +
+//                ", employer=" + employer +
+//                ", location=" + location +
+//                ", positionType=" + positionType +
+//                ", coreCompetency=" + coreCompetency +
+//                '}';
+//    }
+
+    @Override
+    public String toString() {
+            if (this.name == null || this.name.equals("")) {
+                return "Data not available";
+            } else {
+                return "\n" + "ID: " + this.id + "\n" +
+                        "Name: " + this.name + "\n" +
+                        "Employer: " + this.employer + "\n" +
+                        "Location: " + this.location + "\n" +
+                        "Position Type: " + this.positionType + "\n" +
+                        "Core Competency: " + this.coreCompetency + "\n";
+            }
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Job job = (Job) o;
-        return id == job.id && name.equals(job.name) && employer.equals(job.employer) && location.equals(job.location) && positionType.equals(job.positionType) && coreCompetency.equals(job.coreCompetency);
+        return id == job.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, employer, location, positionType, coreCompetency);
+        return Objects.hash(id);
     }
 
-
 // Add getters for each field EXCEPT nextId.
-//completed
 // Add setters for each field EXCEPT nextID and id.
-//completed
 
     public int getId() { return id; }
 
