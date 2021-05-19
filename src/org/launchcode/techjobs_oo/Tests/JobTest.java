@@ -38,7 +38,6 @@ public class JobTest {
         assertEquals("Quality Control", jobTestConstructor.getPositionType().getValue());
         assertEquals("Persistence", jobTestConstructor.getCoreCompetency().getValue());
 //        TODO: TEST EVERY FIELD IN THE CONSTRUCTOR! Test ID field!!!
-
     }
 
     @Test
@@ -54,6 +53,8 @@ public class JobTest {
                 new PositionType("Quality control"),
                 new CoreCompetency("Persistence"));
         assertFalse(jobTestEquality1.getId() == jobTestEquality2.getId());
+//        assertFalse(jobTestEquality1.getId().equals(jobTestEquality2.getId()));
+        assertFalse(jobTestEquality1.equals(jobTestEquality2));
     }
 
 //TODO: write a test that returns a string that contains a blank link before and after the job information
@@ -82,5 +83,6 @@ public class JobTest {
     public void testToStringMethodWithEmptyFields(){
         Job testJobToString = new Job("", new Employer(), new Location(), new PositionType(), new CoreCompetency());
         assertEquals("Data not available", testJobToString.toString());
+        assertTrue(testJobToString.toString().equals("Data not available"));
     }
 }
