@@ -40,6 +40,19 @@ public class Job {
 //    TODO: CHANGE toString METHOD, EQUALS DOESN'T APPLY TO THE OBJECTS
 @Override
 public String toString(){
+        if(id==0){
+            return"Data not available";
+        } else if(name == null){
+            return "Data not available";
+        }else if(employer== null){
+            return "Data not available";
+        } else if(location == null){
+            return "Data not available";
+        } else if(positionType==null){
+            return "Data not available";
+        }else if(coreCompetency == null){
+            return "Data not available";
+        }
         return ("\n"+ "ID: " + id + "\n" +
                 "Name: " + name + "\n" +
                 "Employer: " + employer  + "\n" +
