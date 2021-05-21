@@ -1,5 +1,6 @@
 package org.launchcode.techjobs_oo;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Job {
@@ -25,7 +26,7 @@ public class Job {
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
-        this.id = getId();
+//        this.id = getId();
         this.name = name;
         this.employer = employer;
         this.location = location;
@@ -36,28 +37,39 @@ public class Job {
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
-    @Override
-    public String toString() {
-            if (this.name == null || this.name.equals("")) {
-                return "Data not available";
-            } if (this.id == 0) {
-                return "Data not available";
-            } if (this.employer == null || this.employer.equals("")) {
-                return "Data not available";
-            } if (this.location == null || this.location.equals("")) {
-            return "Data not available";
-            } if (this.positionType == null || this.positionType.equals("")) {
-            return "Data not available";
-            } if (this.coreCompetency == null || this.coreCompetency.equals("")) {
-            return "Data not available";
-            }
-            return "\n" + "ID: " + this.id + "\n" +
-                        "Name: " + this.name + "\n" +
-                        "Employer: " + this.employer + "\n" +
-                        "Location: " + this.location + "\n" +
-                        "Position Type: " + this.positionType + "\n" +
-                        "Core Competency: " + this.coreCompetency + "\n";
-            }
+//    TODO: CHANGE toString METHOD, EQUALS DOESN'T APPLY TO THE OBJECTS
+@Override
+public String toString(){
+        return ("\n"+ "ID: " + id + "\n" +
+                "Name: " + name + "\n" +
+                "Employer: " + employer  + "\n" +
+                "Location: " + location + "\n" +
+                "Position Type: " + positionType + "\n" +
+                "Core Competency: " + coreCompetency +  "\n");
+    }
+
+//    @Override
+//    public String toString() {
+//            if (this.name == null || this.name.equals("")) {
+//                return "Data not available";
+//            } if (this.id == 0) {
+//                return "Data not available";
+//            } if (this.employer == null || this.employer.equals("")) {
+//                return "Data not available";
+//            } if (this.location == null || this.location.equals("")) {
+//            return "Data not available";
+//            } if (this.positionType == null || this.positionType.equals("")) {
+//            return "Data not available";
+//            } if (this.coreCompetency == null || this.coreCompetency.equals("")) {
+//            return "Data not available";
+//            }
+//            return "\n" + "ID: " + this.id + "\n" +
+//                        "Name: " + this.name + "\n" +
+//                        "Employer: " + this.employer + "\n" +
+//                        "Location: " + this.location + "\n" +
+//                        "Position Type: " + this.positionType + "\n" +
+//                        "Core Competency: " + this.coreCompetency + "\n";
+//            }
 
     @Override
     public boolean equals(Object o) {
@@ -102,8 +114,7 @@ public class Job {
     }
 
     public void setEmployer(Employer employer) {
-        this.employer = employer;
-    }
+        this.employer = employer; }
 
     public void setLocation(Location location) {
         this.location = location;
