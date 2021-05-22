@@ -1,5 +1,6 @@
 package org.launchcode.techjobs_oo;
 
+import javax.xml.namespace.QName;
 import java.util.Objects;
 
 public abstract class JobField {
@@ -17,13 +18,10 @@ public abstract class JobField {
         this.value = value;
     }
 
-//    @Override
-//    public String toString() {
-//        return "JobField{" +
-//                "id=" + id +
-//                ", value='" + value + '\'' +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return value;
+    }
 
     @Override
     public boolean equals(Object o) {

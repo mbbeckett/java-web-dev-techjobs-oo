@@ -18,7 +18,7 @@ public class Main {
             System.out.println(job);
         }
 
-        System.out.println(job1.toString());
+        System.out.println(jobs.toString());
     }
 
 }
