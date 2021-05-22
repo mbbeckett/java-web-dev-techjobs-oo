@@ -49,14 +49,14 @@ public class JobTest {
 
     @Test
     public void testBlankLineBeforeAndAfterJobInfo(){
-        Job testJob1 = new Job();
+        Job testJob1 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
         assertTrue(testJob1.toString().contains("\n" + "ID: "));
         assertTrue(testJob1.toString().contains(testJob1.getCoreCompetency() + "\n"));
     }
 
     @Test
     public void testStringLabelToStringMethod(){
-        Job testJob1 = new Job();
+        Job testJob1 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
         assertEquals("\n" + "ID: " + testJob1.getId() +  "\n" +
                 "Name: " + testJob1.getName() + "\n" +
                 "Employer: "+ testJob1.getEmployer() +"\n" +

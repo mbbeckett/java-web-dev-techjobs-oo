@@ -37,7 +37,6 @@ public class Job {
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
-//    TODO: CHANGE toString METHOD, EQUALS DOESN'T APPLY TO THE OBJECTS
 @Override
 public String toString(){
         if(id==0){
