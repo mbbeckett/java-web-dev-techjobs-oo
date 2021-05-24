@@ -65,7 +65,6 @@ public class JobTest {
                 "Core Competency: " + testJob1.getCoreCompetency() + "\n", testJob1.toString());
     }
 
-////    TODO: write a test for empty fields
     @Test
     public void testToStringMethodWithEmptyFields(){
         Job testJobToString = new Job();
